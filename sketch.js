@@ -1,5 +1,3 @@
-var cat 
-var mouse
 
 function preload() {
     catImg = loadAnimation("cat2.png","cat3.png")
@@ -30,7 +28,14 @@ function setup(){
 
 function draw() {
     background(255);
-    keyPressed()
+    if (cat.x-mouse.x>mouse.width/2+cat.width/2){
+        if (keyCode === LEFT_ARROW){
+            cat.velocityX = -5
+            cat.addAnimation("cat",catImg)
+            }
+       
+    }
+    
     if (cat.x-mouse.x<mouse.width/2+cat.width/2){
         cat.velocityX = 0
         cat.addAnimation("cat",catSit)
@@ -41,16 +46,3 @@ function draw() {
     drawSprites();
 }
 
-
-function keyPressed(){
-
- if (keyCode === LEFT_ARROW){
-     cat.velocityX = -5
-     cat.addAnimation("cat",catImg)
-     
-     
- }
-
-
-
-}
